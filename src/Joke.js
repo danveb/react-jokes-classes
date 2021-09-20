@@ -36,26 +36,25 @@ class Joke extends React.Component {
 
   // instance methods 
   upVote() {
-    this.props.upVote(this.props.id, +1) 
+    this.props.vote(this.props.id, +1) 
   }
   downVote() {
-    this.props.downVote(this.props.id, -1) 
+    this.props.vote(this.props.id, -1) 
   }
 
   render() {
     // destructure props here 
-    // - upVote, downVote methods
     // - votes, text
-    const { upVote, downVote, votes, text } = this.props 
+    const { votes, text } = this.props 
 
     return (
       <div className="Joke">
         <div className="Joke-votearea">
-          <button onClick={upVote}>
+          <button onClick={this.upVote}>
             <i className="fas fa-thumbs-up" />
           </button>
   
-          <button onClick={downVote}>
+          <button onClick={this.downVote}>
             <i className="fas fa-thumbs-down" />
           </button>
   
